@@ -4,6 +4,8 @@
 /sad-marriage-pact/node_modules
 /sad-marriage-pact/.pnp
 /sad-marriage-pact.pnp.js
+/api/env
+/api/pyvenv.cfg
 
 # testing
 /sad-marriage-pact/coverage
