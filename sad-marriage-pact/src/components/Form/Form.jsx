@@ -1,16 +1,16 @@
 // form.js
 import React, { Component } from 'react';
 import './Form.css';
-import MainForm from './MainForm';
 import { Container } from 'semantic-ui-react';
+import MainForm from './MainForm';
 
 class Form extends Component {
-
   render() {
-    return(
-      <Container textAlign='center'>
+    return (
+      <Container textAlign="center">
         <MainForm />
-      </Container>     )
+      </Container>
+    );
   }
 }
 
