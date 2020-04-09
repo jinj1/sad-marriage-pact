@@ -1,4 +1,4 @@
-// Preferences.jsx
+// QuestionairePart1.jsx
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import {MAJOR_OPTIONS, GPA_OPTIONS, SALARY_OPTIONS, NUMBER_OPTIONS} from './Options'

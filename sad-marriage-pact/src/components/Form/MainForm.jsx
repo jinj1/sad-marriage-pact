@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import UserDetails from './UserDetails';
 import Preferences from './Preferences';
 import QuestionairePart1 from './QuestionairePart1';
+import QuestionairePart2 from './QuestionairePart2';
 import Confirmation from './Confirmation';
 import Success from './Success';
 
@@ -34,6 +35,17 @@ class MainForm extends Component {
       salary: '',
       kids: '',
       pets: '' 
+    },
+    part2: {
+      drink: '',
+      rave: '',
+      eatOut: '',
+      cook: '',
+      boba: '',
+      gym: '',
+      read: '',
+      workout: '',
+      sex: ''
     } 
   }
 
@@ -81,10 +93,16 @@ class MainForm extends Component {
     this.setState({ 'part1' : part1})
   }
 
+  handlePart2DropdownChange = input => (event, data) => {
+    const { part2 } = this.state;
+    part2[input] =  data.value
+    this.setState({ 'part2' : part2})
+  }
+
   render(){
     const {step} = this.state;
-    const { userDetails, preferences, part1 } = this.state;
-    const values = { userDetails, preferences, part1 };
+    const { userDetails, preferences, part1, part2 } = this.state;
+    const values = { userDetails, preferences, part1, part2};
     switch(step) {
     case 1:
       return <UserDetails
@@ -109,12 +127,19 @@ class MainForm extends Component {
           values={values.part1}
           />
     case 4:
+      return <QuestionairePart2
+          nextStep={this.nextStep}
+          prevStep={this.prevStep}
+          handleDropdownChange = {this.handlePart2DropdownChange}
+          values={values.part2}
+          />
+    case 5:
       return <Confirmation
           nextStep={this.nextStep}
           prevStep={this.prevStep}
           values={values}
           />
-    case 4:
+    case 6:
       return <Success />
     default:
       return
