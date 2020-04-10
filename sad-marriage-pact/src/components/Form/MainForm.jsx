@@ -4,6 +4,7 @@ import UserDetails from './UserDetails';
 import Preferences from './Preferences';
 import QuestionairePart1 from './QuestionairePart1';
 import QuestionairePart2 from './QuestionairePart2';
+import QuestionairePart3 from './QuestionairePart3';
 import Confirmation from './Confirmation';
 import Success from './Success';
 
@@ -34,7 +35,8 @@ class MainForm extends Component {
       gpa: '',
       salary: '',
       kids: '',
-      pets: '' 
+      pets: '',
+      religion: ''
     },
     part2: {
       drink: '',
@@ -46,6 +48,9 @@ class MainForm extends Component {
       read: '',
       workout: '',
       sex: ''
+    },
+    part3: {
+      white: '',
     } 
   }
 
@@ -81,6 +86,12 @@ class MainForm extends Component {
     this.setState({ 'preference' : preferences})
   }
 
+  handlePart3Change = input => (event, value) => {
+    const { part3 } = this.state;
+    part3[input] =  value.value
+    this.setState({ 'part3' : part3})
+  }
+
   handlePreferencesDropdownChange = input => (event, data) => {
     const { preferences } = this.state;
     preferences[input] =  data.value
@@ -101,8 +112,8 @@ class MainForm extends Component {
 
   render(){
     const {step} = this.state;
-    const { userDetails, preferences, part1, part2 } = this.state;
-    const values = { userDetails, preferences, part1, part2};
+    const { userDetails, preferences, part1, part2, part3 } = this.state;
+    const values = { userDetails, preferences, part1, part2, part3};
     switch(step) {
     case 1:
       return <UserDetails
@@ -134,12 +145,19 @@ class MainForm extends Component {
           values={values.part2}
           />
     case 5:
+      return <QuestionairePart3
+          nextStep={this.nextStep}
+          prevStep={this.prevStep}
+          handleChange = {this.handlePart3Change}
+          values={values.part3}
+          />      
+    case 6:
       return <Confirmation
           nextStep={this.nextStep}
           prevStep={this.prevStep}
           values={values}
           />
-    case 6:
+    case 7:
       return <Success />
     default:
       return
