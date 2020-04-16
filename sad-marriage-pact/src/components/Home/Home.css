@@ -1,0 +1,67 @@
+body {
+    font-family: "Avenir", "Helvetica", "Arial", "sans-serif";
+}
+
+.image, .cover {
+    position: relative;
+    width: 100%;
+}
+
+#title1, #title2 {
+    color: white;
+}
+
+#title1 {
+    margin-bottom: 0px;
+    font-size: 4.45vw;
+    letter-spacing: 10px;
+    position: absolute;
+    top: 30%;
+    width: 100%
+}
+
+#title2 {
+    font-size: 6.65vw;
+    letter-spacing: 15px;
+    position: absolute;
+    top: 40%;
+    width: 100%
+}
+
+.subheading {
+    font-size: 24pt;
+    letter-spacing: 10px;
+    color: #E48C5A;
+}
+
+.btn-primary {
+    background-color: #E48C5A !important;
+    border-radius: 20px;
+    border-color: #E48C5A !important;
+}
+
+.btn-xl {
+    padding: 10px;
+    font-size: 1.65vw;
+    width: 18%;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 60%;
+}
+
+.container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.content {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.small-text {
+    font-size: 14pt;
+}
