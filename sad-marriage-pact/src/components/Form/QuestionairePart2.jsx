@@ -28,6 +28,30 @@ class QuestionairePart2 extends Component{
           defaultValue={values.drink}
         />
         <Form.Select
+          label='How often do you smoke?'
+          required={true}
+          options={FREQUENCY_OPTIONS}
+          placeholder='How often do you smoke?'
+          onChange={this.props.handleDropdownChange('smoke')}
+          defaultValue={values.smoke}
+        />
+        <Form.Select
+          label='How often do you consume some form of marijuana?'
+          required={true}
+          options={FREQUENCY_OPTIONS}
+          placeholder='How often do you some form of marijuana?'
+          onChange={this.props.handleDropdownChange('weed')}
+          defaultValue={values.weed}
+        />
+        <Form.Select
+          label='How often do you consume a drug that is not marijuana?'
+          required={true}
+          options={FREQUENCY_OPTIONS}
+          placeholder='How often do you consume a drug that is not marijuana?'
+          onChange={this.props.handleDropdownChange('drug')}
+          defaultValue={values.drug}
+        />
+        <Form.Select
           label='How often do you rave?'
           required={true}
           options={FREQUENCY_OPTIONS}

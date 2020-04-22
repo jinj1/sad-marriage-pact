@@ -1,7 +1,7 @@
 // QuestionairePart1.jsx
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react';
-import {MAJOR_OPTIONS, GPA_OPTIONS, SALARY_OPTIONS, NUMBER_OPTIONS, RELIGIOUS_OPTIONS} from './Options'
+import {MAJOR_OPTIONS, GPA_OPTIONS, SALARY_OPTIONS, NUMBER_OPTIONS, RELIGIOUS_OPTIONS, LOVE_LANG_OPTIONS, FOOD_OPTIONS} from './Options'
 
 class QuestionairePart1 extends Component{
     saveAndContinue = (e) => {
@@ -68,6 +68,32 @@ class QuestionairePart1 extends Component{
           onChange={this.props.handleDropdownChange('religion')}
           defaultValue={values.religion}
         />
+        <Form.Select
+          label='What is your top love language?'
+          required={true}
+          options={LOVE_LANG_OPTIONS}
+          placeholder='What is your top love language?'
+          onChange={this.props.handleDropdownChange('loveLang')}
+          defaultValue={values.loveLang}
+        />
+        <Form.Select
+          label='Which do u prefer: hotpot, dim sum or kbbq?'
+          required={true}
+          options={FOOD_OPTIONS}
+          placeholder='Which do u prefer: hotpot, dim sum or kbbq?'
+          onChange={this.props.handleDropdownChange('hotpot')}
+          defaultValue={values.hotpot}
+        />
+        <Form.Input 
+          label='How many cups of water do you add per cup of rice'
+          required={true}
+          placeholder='Cup'
+          type='number'
+          min='0' max='5'
+          onChange={this.props.handleChange('rice')}
+          defaultValue={values.rice}
+        />
+        
         <Button onClick={this.back}>Back</Button>
         <Button type="submit">Save And Continue </Button>
       </Form>

@@ -36,10 +36,16 @@ class MainForm extends Component {
       salary: '',
       kids: '',
       pets: '',
-      religion: ''
+      religion: '',
+      loveLang: '',
+      hotpot: '',
+      rice: ''
     },
     part2: {
       drink: '',
+      smoke: '',
+      weed: '',
+      drug: '',
       rave: '',
       eatOut: '',
       cook: '',
@@ -51,6 +57,17 @@ class MainForm extends Component {
     },
     part3: {
       white: '',
+      weeb: '',
+      kpop: '',
+      parent: '',
+      maintainence: '',
+      arrival: '',
+      cleaniness: '',
+      emotion: '',
+      abb: '',
+      personality: '',
+      polotics: '',
+      commitment: ''
     } 
   }
 
