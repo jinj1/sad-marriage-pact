@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const home = () => (
   <div>
     <div class="cover text-center">
-    <img class="image" src="cover.png" alt="marriage pact cover photo"></img>
+    <img class="image" src="cover.png" alt="hand holding out two rings"></img>
       <div>
         <p id="title1">SUBTLE ASIAN DATING</p>
         <br></br>

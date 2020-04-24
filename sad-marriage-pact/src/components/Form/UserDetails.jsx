@@ -21,7 +21,6 @@ class UserDetails extends Component{
             placeholder='First Name'
             onChange={this.props.handleChange('firstName')}
             defaultValue={values.firstName}
-            validators={['required']} 
           />
           <Form.Input
             label="Last Name"
@@ -48,6 +47,7 @@ class UserDetails extends Component{
             defaultValue={values.age}
           />
           <Form.Select
+            search
             label='Height'
             required={true}
             name='height'

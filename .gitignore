@@ -4,7 +4,7 @@
 /sad-marriage-pact/node_modules
 /sad-marriage-pact/.pnp
 /sad-marriage-pact.pnp.js
-/api/env
+
 
 # testing
 /sad-marriage-pact/coverage
@@ -21,6 +21,7 @@
 .eslintrc.json
 
 __pycache__/
+env/
 
 npm-debug.log*
 yarn-debug.log*

@@ -5,7 +5,7 @@ import Preferences from './Preferences';
 import QuestionairePart1 from './QuestionairePart1';
 import QuestionairePart2 from './QuestionairePart2';
 import QuestionairePart3 from './QuestionairePart3';
-import Confirmation from './Confirmation';
+import ContactInfo from './ContactInfo';
 import Success from './Success';
 
 class MainForm extends Component {
@@ -18,7 +18,6 @@ class MainForm extends Component {
       age: '',
       height: '',
       gender: '',
-      city: '',
       country: '',
       ethnicities: []
     },
@@ -39,7 +38,8 @@ class MainForm extends Component {
       religion: '',
       loveLang: '',
       hotpot: '',
-      rice: ''
+      rice: '',
+      valid: true
     },
     part2: {
       drink: '',
@@ -50,10 +50,10 @@ class MainForm extends Component {
       eatOut: '',
       cook: '',
       boba: '',
-      gym: '',
       read: '',
       workout: '',
-      sex: ''
+      sex: '',
+      valid: true
     },
     part3: {
       white: '',
@@ -66,13 +66,41 @@ class MainForm extends Component {
       emotion: '',
       abb: '',
       personality: '',
-      polotics: '',
-      commitment: ''
-    } 
+      politics: '',
+      commitment: '',
+      valid: true,
+    },
+    contactInfo: {
+      snapchat: '',
+      instagram: '',
+      facebook: '',
+      email: '',
+      other: '',
+      valid: true,
+    },
   }
 
-  nextStep = () => {
+  nextStep = async () => {
     const { step } = this.state
+    if(step > 2 && step < 7){
+      var valid = this.checkValid(step)
+      if (!valid){
+        return;
+      }
+    }
+    if (step === 6){
+      const headers = new Headers()
+      headers.append('Content-Type', 'application/json')
+      const options = {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(this.state)
+      }
+      const request = new Request('/data', options)
+      const response = await fetch(request)
+      const status = await response.status
+      console.log(status)
+    }
     this.setState({
       step : step + 1
     })
@@ -83,6 +111,61 @@ class MainForm extends Component {
     this.setState({
       step : step - 1
     })
+  }
+
+  checkValid = (step) =>{
+    switch(step){
+    case 3:
+      const { part1 } = this.state
+      for (let key of Object.keys(part1)){
+        if (part1[key] === ''){
+          part1['valid'] = false
+          this.setState({'part1': part1})
+          return false
+        }
+      }
+      part1['valid'] = true
+      this.setState({'part1': part1})
+      return true
+    case 4:
+      const { part2 } = this.state
+      for (let key of Object.keys(part2)){
+        if (part2[key] === ''){
+          part2['valid'] = false
+          this.setState({'part2': part2})
+          return false
+        }
+      }
+      part2['valid'] = true
+      this.setState({'part2': part2})
+      return true
+    case 5:
+      const { part3 } = this.state
+      for (let key of Object.keys(part3)){
+        if (part3[key] === ''){
+          part3['valid'] = false
+          this.setState({'part3': part3})
+          return false
+        }
+      }
+      part3['valid'] = true
+      this.setState({'part3': part3})
+      return true
+    case 6:
+      const { contactInfo } = this.state
+      for (let key of Object.keys(contactInfo)){
+        if (key !== 'valid' && contactInfo[key] !== ''){
+          contactInfo['valid'] = true
+          this.setState({'contactInfo': contactInfo})
+          return true
+        }
+      }
+      contactInfo['valid'] = false
+      this.setState({'contactInfo': contactInfo})
+      return false
+    default:
+      return true
+    }
   }
 
   handleUserDetailsChange = input => event => {
@@ -100,37 +183,54 @@ class MainForm extends Component {
   handlePreferencesChange = input => event => {
     const { preferences } = this.state;
     preferences[input] =  event.target.value
-    this.setState({ 'preference' : preferences})
+    this.setState({ 'preferences' : preferences})
+  }
+
+  handlePart1Change = input => (event, value) => {
+    const { part1 } = this.state;
+    part1[input] =  value.value
+    part1['valid'] = true
+    this.setState({ 'part1' : part1})
   }
 
   handlePart3Change = input => (event, value) => {
     const { part3 } = this.state;
     part3[input] =  value.value
+    part3['valid'] = true
     this.setState({ 'part3' : part3})
+  }
+
+  handleContactInfoChange = input => (event, value) => {
+    const { contactInfo } = this.state;
+    contactInfo[input] =  value.value
+    contactInfo['valid'] = true
+    this.setState({ 'contactInfo' : contactInfo})
   }
 
   handlePreferencesDropdownChange = input => (event, data) => {
     const { preferences } = this.state;
     preferences[input] =  data.value
-    this.setState({ 'preference' : preferences})
+    this.setState({ 'preferences' : preferences})
   }
 
   handlePart1DropdownChange = input => (event, data) => {
     const { part1 } = this.state;
     part1[input] =  data.value
+    part1['valid'] = true
     this.setState({ 'part1' : part1})
   }
 
   handlePart2DropdownChange = input => (event, data) => {
     const { part2 } = this.state;
     part2[input] =  data.value
+    part2['valid'] = true
     this.setState({ 'part2' : part2})
   }
 
   render(){
     const {step} = this.state;
-    const { userDetails, preferences, part1, part2, part3 } = this.state;
-    const values = { userDetails, preferences, part1, part2, part3};
+    const { userDetails, preferences, part1, part2, part3, contactInfo } = this.state;
+    const values = { userDetails, preferences, part1, part2, part3, contactInfo};
     switch(step) {
     case 1:
       return <UserDetails
@@ -151,6 +251,7 @@ class MainForm extends Component {
       return <QuestionairePart1
           nextStep={this.nextStep}
           prevStep={this.prevStep}
+          handleChange = {this.handlePart1Change}
           handleDropdownChange = {this.handlePart1DropdownChange}
           values={values.part1}
           />
@@ -167,12 +268,13 @@ class MainForm extends Component {
           prevStep={this.prevStep}
           handleChange = {this.handlePart3Change}
           values={values.part3}
-          />      
+          />  
     case 6:
-      return <Confirmation
+      return <ContactInfo
           nextStep={this.nextStep}
           prevStep={this.prevStep}
-          values={values}
+          handleChange = {this.handleContactInfoChange}
+          values={values.contactInfo}
           />
     case 7:
       return <Success />

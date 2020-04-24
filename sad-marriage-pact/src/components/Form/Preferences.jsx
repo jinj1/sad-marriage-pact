@@ -26,7 +26,7 @@ class Preferences extends Component{
           type='number'
           min='18' max='100'
           onChange={this.props.handleChange('minAge')}
-          defaultValue={values.age}
+          defaultValue={values.minAge}
         />
         <Form.Input
           label='Maximum Age'
@@ -35,9 +35,10 @@ class Preferences extends Component{
           type='number'
           min='18' max='100'
           onChange={this.props.handleChange('maxAge')}
-          defaultValue={values.age}
+          defaultValue={values.maxAge}
         />
         <Form.Select
+          search
           required={true}
           label='Minumum Height'
           options={[{'key': 'N/A', 'text': 'No Preference', 'value': 'N/A'}].concat(HEIGHT_OPTIONS)}
@@ -46,6 +47,7 @@ class Preferences extends Component{
           defaultValue={values.minHeight}
         />
         <Form.Select
+          search
           required={true}
           label='Maximum Height'
           options={[{'key': 'N/A', 'text': 'No Preference', 'value': 'N/A'}].concat(HEIGHT_OPTIONS)}

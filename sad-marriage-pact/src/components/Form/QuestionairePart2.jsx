@@ -1,6 +1,6 @@
 // QuestionairePart2.jsx
 import React, { Component } from 'react';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Message, Button } from 'semantic-ui-react';
 import { FREQUENCY_OPTIONS } from './Options'
 
 class QuestionairePart2 extends Component{
@@ -17,7 +17,7 @@ class QuestionairePart2 extends Component{
     render(){
       const { values } = this.props
       return(
-      <Form onSubmit={this.saveAndContinue} >
+      <Form error >
         <h1 className="ui centered">Questionaire Part 2</h1>
         <Form.Select
           label='How often do you drink?'
@@ -88,8 +88,8 @@ class QuestionairePart2 extends Component{
           required={true}
           options={FREQUENCY_OPTIONS}
           placeholder='How often do you hit the gym?'
-          onChange={this.props.handleDropdownChange('gym')}
-          defaultValue={values.gym}
+          onChange={this.props.handleDropdownChange('workout')}
+          defaultValue={values.workout}
         />
         <Form.Select
           label='How often do you read?'
@@ -115,8 +115,14 @@ class QuestionairePart2 extends Component{
           onChange={this.props.handleDropdownChange('sex')}
           defaultValue={values.sex}
         /> 
+        <Message
+          hidden ={values.valid}
+          error
+          header='Error unanswered question'
+          content='Please make sure you have answered all questions'
+        />
         <Button onClick={this.back}>Back</Button>
-        <Button type='submit'>Save And Continue </Button>
+        <Button onClick={this.saveAndContinue}>Save And Continue </Button>
       </Form>
       )
     }
