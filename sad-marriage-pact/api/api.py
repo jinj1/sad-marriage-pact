@@ -27,10 +27,12 @@ def hello():
   data.pop('step')
   for key in data.keys():
     data[key].pop('valid', '')
+  data["matched"] = False
   db.update_one(
     { "userDetails.email": data.get('userDetails', {'email': ''}).get('email', '')},
     {"$setOnInsert": data},
     upsert=True,
 
   )
+  print(data)
   return '', http.HTTPStatus.NO_CONTENT

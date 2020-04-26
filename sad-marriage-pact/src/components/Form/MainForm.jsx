@@ -19,7 +19,8 @@ class MainForm extends Component {
       height: '',
       gender: '',
       country: '',
-      ethnicities: []
+      ethnicities: [],
+      valid: true
     },
     preferences : {
       minAge: '',
@@ -27,7 +28,8 @@ class MainForm extends Component {
       minHeight: '',
       maxHeight: '',
       genders: [],
-      ethnicities: []
+      ethnicities: [],
+      valid: true
     },
     part1: {
       major: '',
@@ -82,11 +84,9 @@ class MainForm extends Component {
 
   nextStep = async () => {
     const { step } = this.state
-    if(step > 2 && step < 7){
-      var valid = this.checkValid(step)
-      if (!valid){
-        return;
-      }
+    var valid = this.checkValid(step)
+    if (!valid){
+      return;
     }
     if (step === 6){
       const headers = new Headers()
@@ -115,6 +115,35 @@ class MainForm extends Component {
 
   checkValid = (step) =>{
     switch(step){
+    case 1:
+      const { userDetails } = this.state
+      for (let key of Object.keys(userDetails)){
+        if (userDetails[key] === ''){
+          userDetails['valid'] = false
+          this.setState({'userDetails': userDetails})
+          return false
+        }
+      }
+      userDetails['valid'] = true
+      this.setState({'userDetails': userDetails})
+      return true
+    case 2:
+      const { preferences } = this.state
+      for (let key of Object.keys(preferences)){
+        if (preferences[key] === ''){
+          preferences['valid'] = false
+          this.setState({'preferences': preferences})
+          return false
+        }
+      }
+      if (preferences['minAge'] > preferences['maxAge'] || preferences['minHeight'] > preferences['maxHeight']){
+        preferences['valid'] = false
+        this.setState({'preferences': preferences})
+        return false
+      }
+      preferences['valid'] = true
+      this.setState({'preferences': preferences})
+      return true
     case 3:
       const { part1 } = this.state
       for (let key of Object.keys(part1)){
@@ -171,18 +200,14 @@ class MainForm extends Component {
   handleUserDetailsChange = input => event => {
     const { userDetails } = this.state;
     userDetails[input] =  event.target.value
-    this.setState({ 'userDetails' : userDetails})
-  }
-
-  handleUserDetailsDropdownChange = input => (event, data) => {
-    const { userDetails } = this.state;
-    userDetails[input] =  data.value
+    userDetails['valid'] = true
     this.setState({ 'userDetails' : userDetails})
   }
 
   handlePreferencesChange = input => event => {
     const { preferences } = this.state;
     preferences[input] =  event.target.value
+    preferences['valid'] = true
     this.setState({ 'preferences' : preferences})
   }
 
@@ -207,9 +232,17 @@ class MainForm extends Component {
     this.setState({ 'contactInfo' : contactInfo})
   }
 
+  handleUserDetailsDropdownChange = input => (event, data) => {
+    const { userDetails } = this.state;
+    userDetails[input] =  data.value
+    userDetails['valid'] = true
+    this.setState({ 'userDetails' : userDetails})
+  }
+
   handlePreferencesDropdownChange = input => (event, data) => {
     const { preferences } = this.state;
     preferences[input] =  data.value
+    preferences['valid'] = true
     this.setState({ 'preferences' : preferences})
   }
 
