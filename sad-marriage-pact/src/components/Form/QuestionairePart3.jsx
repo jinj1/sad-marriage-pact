@@ -60,7 +60,7 @@ class QuestionairePart3 extends Component{
                   <div className="ui divider"></div>
                   <label className="group_label">On a scale of 1 to 5 how high matainence are you?</label>
                   <Form.Group widths='equal'>
-                    {['1(Low maintenance)', '2', '3', '4', '5(High maintenance)'].map((value, index) => {
+                    {['1(Low maintainence)', '2', '3', '4', '5(High maintainence)'].map((value, index) => {
                       if (index === 0){return <Form.Radio required={true} label={value} key={index} value={value} checked={values.maintainence === value} onChange={this.props.handleChange('maintainence')}/>}
                       else{return <Form.Radio label={value} key={index} value={value} checked={values.maintainence === value} onChange={this.props.handleChange('maintainence')}/>}
                     })}
