@@ -90,11 +90,11 @@ class QuestionairePart3 extends Component{
                     })}
                   </Form.Group>
                   <div className="ui divider"></div>
-                  <label className="group_label">Where do you lie: nice person vs ABB/ABG ?</label>
+                  <label className="group_label">Where do you lie: wholesome vs hoesome ?</label>
                   <Form.Group widths='equal'>
-                    {['1(Nice person)', '2', '3', '4', '5(ABB/ABG)'].map((value, index) => {
-                      if (index === 0){return <Form.Radio required={true} label={value} key={index} value={value} checked={values.abb === value} onChange={this.props.handleChange('abb')}/>}
-                      else{return <Form.Radio label={value} key={index} value={value} checked={values.abb === value} onChange={this.props.handleChange('abb')}/>}
+                    {['1(Wholesome)', '2', '3', '4', '5(Hoesome)'].map((value, index) => {
+                      if (index === 0){return <Form.Radio required={true} label={value} key={index} value={value} checked={values.abb === value} onChange={this.props.handleChange('wholesome')}/>}
+                      else{return <Form.Radio label={value} key={index} value={value} checked={values.abb === value} onChange={this.props.handleChange('wholesome')}/>}
                     })}
                   </Form.Group>
                   <div className="ui divider"></div>

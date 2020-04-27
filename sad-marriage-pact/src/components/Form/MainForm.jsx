@@ -66,7 +66,7 @@ class MainForm extends Component {
       arrival: '',
       cleaniness: '',
       emotion: '',
-      abb: '',
+      wholesome: '',
       personality: '',
       politics: '',
       commitment: '',
