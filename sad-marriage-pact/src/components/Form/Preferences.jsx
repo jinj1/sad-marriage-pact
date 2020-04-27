@@ -87,7 +87,7 @@ class Preferences extends Component{
                   search
                   multiple selection
                   required={true}
-                  label='What kind of Asian are you looking for?(Soft requirement)'
+                  label='What kind of Asian are you looking for?(Soft requirement)(Select all that apply)'
                   options={[{'key': 'N/A', 'text': 'No Preference', 'value': 'N/A'}].concat(ETHNICITIES_OPTIONS)}
                   placeholder='What kind of Asian are you looking for?'
                   onChange={this.props.handleDropdownChange('ethnicities')}

@@ -85,7 +85,8 @@ class UserDetails extends Component{
                   <Form.Select
                   upward={false}
                   search
-                  label='Current Location'
+                  multiple selection
+                  label='Current Location(Select all that apply)'
                   required={true}
                   options={COUNTRY_OPTIONS}
                   placeholder='Which country are you currently located in?'
@@ -96,7 +97,7 @@ class UserDetails extends Component{
                   upward={false}
                   search
                   multiple selection
-                  label='Asian Ethnicity'
+                  label='Asian Ethnicity(Select all that apply)'
                   required={true}
                   options={ETHNICITIES_OPTIONS}
                   placeholder='What asian ethnicity do you identify with?'

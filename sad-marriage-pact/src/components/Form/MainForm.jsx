@@ -18,7 +18,7 @@ class MainForm extends Component {
       age: '',
       height: '',
       gender: '',
-      country: '',
+      country: [],
       ethnicities: [],
       valid: true
     },
