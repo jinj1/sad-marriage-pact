@@ -1,6 +1,6 @@
 // QuestionairePart1.jsx
 import React, { Component } from 'react';
-import { Grid,Form, Message, Button } from 'semantic-ui-react';
+import { Grid, Form, Message, Button } from 'semantic-ui-react';
 import {MAJOR_OPTIONS, GPA_OPTIONS, SALARY_OPTIONS, NUMBER_OPTIONS, RELIGIOUS_OPTIONS, LOVE_LANG_OPTIONS, FOOD_OPTIONS} from './Options'
 
 class QuestionairePart1 extends Component{
