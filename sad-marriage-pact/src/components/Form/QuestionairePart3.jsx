@@ -36,7 +36,7 @@ class QuestionairePart3 extends Component{
                   <div className="ui divider"></div>
                   <label className="group_label">On a scale of 1 to 5 how much of a weeb are you?</label>
                   <Form.Group widths='equal'>
-                    {['1(Whats anime?)', '2', '3', '4', '5(Full Weeb)'].map((value, index) => {
+                    {['1(What\'s anime?)', '2', '3', '4', '5(Full Weeb)'].map((value, index) => {
                       if (index === 0){return <Form.Radio required={true} label={value} key={index} value={value} checked={values.weeb === value} onChange={this.props.handleChange('weeb')}/>}
                       else{return <Form.Radio label={value} key={index} value={value} checked={values.weeb === value} onChange={this.props.handleChange('weeb')}/>}
                     })}
@@ -44,7 +44,7 @@ class QuestionairePart3 extends Component{
                   <div className="ui divider"></div>
                   <label className="group_label">On a scale of 1 to 5 how into kpop are you?</label>
                   <Form.Group widths='equal'>
-                    {['1(Neutral)', '2', '3', '4', '5(Obsessed)'].map((value, index) => {
+                    {['1(Dispise it)', '2', '3', '4', '5(Obsessed)'].map((value, index) => {
                       if (index === 0){return <Form.Radio required={true} label={value} key={index} value={value} checked={values.kpop === value} onChange={this.props.handleChange('kpop')}/>}
                       else{return <Form.Radio label={value} key={index} value={value} checked={values.kpop === value} onChange={this.props.handleChange('kpop')}/>}
                     })}
@@ -93,8 +93,8 @@ class QuestionairePart3 extends Component{
                   <label className="group_label">Where do you lie: wholesome vs hoesome ?</label>
                   <Form.Group widths='equal'>
                     {['1(Wholesome)', '2', '3', '4', '5(Hoesome)'].map((value, index) => {
-                      if (index === 0){return <Form.Radio required={true} label={value} key={index} value={value} checked={values.abb === value} onChange={this.props.handleChange('wholesome')}/>}
-                      else{return <Form.Radio label={value} key={index} value={value} checked={values.abb === value} onChange={this.props.handleChange('wholesome')}/>}
+                      if (index === 0){return <Form.Radio required={true} label={value} key={index} value={value} checked={values.wholesome === value} onChange={this.props.handleChange('wholesome')}/>}
+                      else{return <Form.Radio label={value} key={index} value={value} checked={values.wholesome === value} onChange={this.props.handleChange('wholesome')}/>}
                     })}
                   </Form.Group>
                   <div className="ui divider"></div>

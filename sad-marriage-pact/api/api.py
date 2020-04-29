@@ -30,9 +30,7 @@ def hello():
   data["matched"] = False
   db.update_one(
     { "userDetails.email": data.get('userDetails', {'email': ''}).get('email', '')},
-    {"$setOnInsert": data},
+    { "$set": data},
     upsert=True,
-
   )
-  print(data)
   return '', http.HTTPStatus.NO_CONTENT

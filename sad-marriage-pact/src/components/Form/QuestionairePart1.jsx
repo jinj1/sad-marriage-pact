@@ -91,7 +91,7 @@ class QuestionairePart1 extends Component{
                   />
                   <Form.Select
                   upward={false}
-                  label='Which do u prefer: hotpot, dim sum or kbbq?'
+                  label='Which do you prefer: hotpot, dim sum or kbbq?'
                   required={true}
                   options={FOOD_OPTIONS}
                   placeholder='Which do u prefer: hotpot, dim sum or kbbq?'
