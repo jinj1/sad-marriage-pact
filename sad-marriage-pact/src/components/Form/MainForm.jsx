@@ -6,6 +6,7 @@ import QuestionairePart1 from './QuestionairePart1';
 import QuestionairePart2 from './QuestionairePart2';
 import QuestionairePart3 from './QuestionairePart3';
 import ContactInfo from './ContactInfo';
+import Confirmation from './Confirmation';
 import Success from './Success';
 
 class MainForm extends Component {
@@ -88,7 +89,7 @@ class MainForm extends Component {
     if (!valid){
       return;
     }
-    if (step === 6){
+    if (step === 8){
       const headers = new Headers()
       headers.append('Content-Type', 'application/json')
       const options = {
@@ -110,6 +111,18 @@ class MainForm extends Component {
     const { step } = this.state
     this.setState({
       step : step - 1
+    })
+  }
+
+  backToUserDetails = () => {
+    this.setState({
+      step : 1
+    })
+  }
+
+  backToPreferences = () => {
+    this.setState({
+      step : 2
     })
   }
 
@@ -310,6 +323,14 @@ class MainForm extends Component {
           values={values.contactInfo}
           />
     case 7:
+      return <Confirmation
+          nextStep={this.nextStep}
+          prevStep={this.prevStep}
+          backToUserDetails={this.backToUserDetails}
+          backToPreferences={this.backToPreferences}
+          values={values}
+          />
+    case 8:
       return <Success />
     default:
       return
