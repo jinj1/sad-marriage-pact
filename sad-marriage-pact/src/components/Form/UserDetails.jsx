@@ -4,10 +4,13 @@ import { Grid, Form, Message, Button } from 'semantic-ui-react';
 import { COUNTRY_OPTIONS, ETHNICITIES_OPTIONS, GENDER_OPTIONS, HEIGHT_OPTIONS} from './Options';
 
 class UserDetails extends Component{
+    componentDidMount(){
+      window.scrollTo(0,0);
+    }
 
     saveAndContinue = (e) => {
-      e.preventDefault()
-      this.props.nextStep()
+      e.preventDefault();
+      this.props.nextStep();
     }
 
     render(){
@@ -86,7 +89,7 @@ class UserDetails extends Component{
                   upward={false}
                   search
                   multiple selection
-                  label='Current Location(Select all that apply)'
+                  label='Current Location (Select all that apply)'
                   required={true}
                   options={COUNTRY_OPTIONS}
                   placeholder='Which country are you currently located in?'
@@ -97,7 +100,7 @@ class UserDetails extends Component{
                   upward={false}
                   search
                   multiple selection
-                  label='Asian Ethnicity(Select all that apply)'
+                  label='Asian Ethnicity (Select all that apply)'
                   required={true}
                   options={ETHNICITIES_OPTIONS}
                   placeholder='What asian ethnicity do you identify with?'

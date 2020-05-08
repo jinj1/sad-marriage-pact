@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import Form from './components/Form/Form';
 import Error from './components/Error/Error';
 
+// eslint-disable-next-line react/prefer-stateless-function
 class App extends Component {
   render() {
     return (

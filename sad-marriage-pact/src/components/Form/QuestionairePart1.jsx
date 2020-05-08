@@ -1,9 +1,14 @@
 // QuestionairePart1.jsx
 import React, { Component } from 'react';
-import { Grid, Form, Message, Button } from 'semantic-ui-react';
+import { Grid, Form, Message, Button, Select } from 'semantic-ui-react';
 import {MAJOR_OPTIONS, GPA_OPTIONS, SALARY_OPTIONS, NUMBER_OPTIONS, RELIGIOUS_OPTIONS, LOVE_LANG_OPTIONS, FOOD_OPTIONS} from './Options'
+import './Questionaire.css'
 
 class QuestionairePart1 extends Component{
+    componentDidMount(){
+      window.scrollTo(0,0);
+    }
+    
     saveAndContinue = (e) => {
       e.preventDefault();
       this.props.nextStep();
@@ -80,15 +85,19 @@ class QuestionairePart1 extends Component{
                   onChange={this.props.handleDropdownChange('religion')}
                   defaultValue={values.religion}
                   />
-                  <Form.Select
-                  upward={false}
-                  label='What is your top love language?'
-                  required={true}
-                  options={LOVE_LANG_OPTIONS}
-                  placeholder='What is your top love language?'
-                  onChange={this.props.handleDropdownChange('loveLang')}
-                  defaultValue={values.loveLang}
-                  />
+                  <Form.Field required={true}>
+                    <label className="group_label"> 
+                      What is your top love language? 
+                      <a href="https://www.5lovelanguages.com/quizzes/singles-quiz/" rel="noopener noreferrer" target="_blank"> (Take the quiz here.)</a>
+                    </label>
+                    < Select
+                    upward={false}
+                    options={LOVE_LANG_OPTIONS}
+                    placeholder='What is your top love language?'
+                    onChange={this.props.handleDropdownChange('loveLang')}
+                    defaultValue={values.loveLang}
+                    />
+                  </Form.Field>
                   <Form.Select
                   upward={false}
                   label='Which do you prefer: hotpot, dim sum or kbbq?'

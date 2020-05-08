@@ -29,7 +29,7 @@ class Preferences extends Component{
                   <Form.Group>
                     <Form.Input
                     width={8} 
-                    label='Minimum Age(Hard requirement)'
+                    label='Minimum Age (Hard requirement)'
                     required={true}
                     placeholder='Age'
                     type='number'
@@ -39,7 +39,7 @@ class Preferences extends Component{
                     />
                     <Form.Input
                     width={8}
-                    label='Maximum Age(Hard requirement)'
+                    label='Maximum Age (Hard requirement)'
                     required={true}
                     placeholder='Age'
                     type='number'
@@ -54,7 +54,7 @@ class Preferences extends Component{
                     width={8}
                     search
                     required={true}
-                    label='Minumum Height(Hard requirement)'
+                    label='Minumum Height (Hard requirement)'
                     options={[{'key': 'N/A', 'text': 'No Preference', 'value': 148}].concat(HEIGHT_OPTIONS)}
                     placeholder='Select your Height (CM)'
                     onChange={this.props.handleDropdownChange('minHeight')}
@@ -65,7 +65,7 @@ class Preferences extends Component{
                     width={8}
                     search
                     required={true}
-                    label='Maximum Height(Hard requirement)'
+                    label='Maximum Height (Hard requirement)'
                     options={[{'key': 'N/A', 'text': 'No Preference', 'value': 202}].concat(HEIGHT_OPTIONS)}
                     placeholder='Select your Height (CM)'
                     onChange={this.props.handleDropdownChange('maxHeight')}
@@ -76,7 +76,7 @@ class Preferences extends Component{
                   upward={false}
                   required={true}
                   multiple selection
-                  label='What are you looking for?(Hard requirement)'
+                  label='What are you looking for? (Hard requirement)'
                   options={GENDER_OPTIONS}
                   placeholder='Select all gender preferences'
                   onChange={this.props.handleDropdownChange('genders')}
@@ -87,7 +87,7 @@ class Preferences extends Component{
                   search
                   multiple selection
                   required={true}
-                  label='What kind of Asian are you looking for?(Soft requirement)(Select all that apply)'
+                  label='What kind of Asian are you looking for? (Soft requirement) (Select all that apply)'
                   options={[{'key': 'N/A', 'text': 'No Preference', 'value': 'N/A'}].concat(ETHNICITIES_OPTIONS)}
                   placeholder='What kind of Asian are you looking for?'
                   onChange={this.props.handleDropdownChange('ethnicities')}

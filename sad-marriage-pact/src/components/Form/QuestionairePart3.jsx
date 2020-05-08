@@ -4,6 +4,10 @@ import { Grid, Form, Message, Button } from 'semantic-ui-react';
 import './Questionaire.css'
 
 class QuestionairePart3 extends Component{
+    componentDidMount(){
+      window.scrollTo(0,0);
+    }
+    
     saveAndContinue = (e) => {
       e.preventDefault();
       this.props.nextStep();
@@ -16,7 +20,6 @@ class QuestionairePart3 extends Component{
 
     render(){
       const { values } = this.props
-      console.log(values)
       return(
         <div>
           <h1 className="ui centered">Questionaire Part 3</h1>

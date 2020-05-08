@@ -4,6 +4,10 @@ import { Grid, Form, Message, Button } from 'semantic-ui-react';
 import { FREQUENCY_OPTIONS } from './Options'
 
 class QuestionairePart2 extends Component{
+    componentDidMount(){
+      window.scrollTo(0,0);
+    }
+    
     saveAndContinue = (e) => {
       e.preventDefault();
       this.props.nextStep();

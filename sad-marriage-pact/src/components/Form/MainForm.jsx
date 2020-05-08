@@ -89,7 +89,7 @@ class MainForm extends Component {
     if (!valid){
       return;
     }
-    if (step === 8){
+    if (step === 7){
       const headers = new Headers()
       headers.append('Content-Type', 'application/json')
       const options = {
