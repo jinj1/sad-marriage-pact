@@ -22,7 +22,7 @@ class QuestionairePart3 extends Component{
       const { values } = this.props
       return(
         <div>
-          <h1 className="ui centered">Questionaire Part 3</h1>
+          <h1 className="ui centered">Questionnaire Part 3</h1>
           <Grid>
             <Grid.Row centered>
               <Grid.Column width={11}>
@@ -45,7 +45,7 @@ class QuestionairePart3 extends Component{
                     })}
                   </Form.Group>
                   <div className="ui divider"></div>
-                  <label className="group_label">On a scale of 1 to 5 how into kpop are you?</label>
+                  <label className="group_label">On a scale of 1 to 5 how into K-pop are you?</label>
                   <Form.Group widths='equal'>
                     {['1(Dispise it)', '2', '3', '4', '5(Obsessed)'].map((value, index) => {
                       if (index === 0){return <Form.Radio required={true} label={value} key={index} value={value} checked={values.kpop === value} onChange={this.props.handleChange('kpop')}/>}
@@ -61,9 +61,9 @@ class QuestionairePart3 extends Component{
                     })}
                   </Form.Group>
                   <div className="ui divider"></div>
-                  <label className="group_label">On a scale of 1 to 5 how high matainence are you?</label>
+                  <label className="group_label">On a scale of 1 to 5 how high maintenance are you?</label>
                   <Form.Group widths='equal'>
-                    {['1(Low maintainence)', '2', '3', '4', '5(High maintainence)'].map((value, index) => {
+                    {['1(Low maintenance)', '2', '3', '4', '5(High maintenance)'].map((value, index) => {
                       if (index === 0){return <Form.Radio required={true} label={value} key={index} value={value} checked={values.maintainence === value} onChange={this.props.handleChange('maintainence')}/>}
                       else{return <Form.Radio label={value} key={index} value={value} checked={values.maintainence === value} onChange={this.props.handleChange('maintainence')}/>}
                     })}
@@ -87,7 +87,7 @@ class QuestionairePart3 extends Component{
                   <div className="ui divider"></div>
                   <label className="group_label">How emotionally incompetent are you due to lack of parental love ?</label>
                   <Form.Group widths='equal'>
-                    {['1(Emotionally Compotent)', '2', '3', '4', '5(Emotionally Incompotent)'].map((value, index) => {
+                    {['1(Emotionally Competent)', '2', '3', '4', '5(Emotionally Incompetent)'].map((value, index) => {
                       if (index === 0){return <Form.Radio required={true} label={value} key={index} value={value} checked={values.emotion === value} onChange={this.props.handleChange('emotion')}/>}
                       else{return <Form.Radio label={value} key={index} value={value} checked={values.emotion === value} onChange={this.props.handleChange('emotion')}/>}
                     })}

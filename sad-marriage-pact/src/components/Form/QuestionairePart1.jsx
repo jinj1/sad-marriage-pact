@@ -23,7 +23,7 @@ class QuestionairePart1 extends Component{
       const { values } = this.props
       return(
         <div>
-          <h1 className="ui centered">Questionaire Part 1</h1>
+          <h1 className="ui centered">Questionnaire Part 1</h1>
           <Grid>
             <Grid.Row centered>
               <Grid.Column width={11}>
@@ -42,10 +42,10 @@ class QuestionairePart1 extends Component{
                   />
                   <Form.Select
                   upward={false}
-                  label='What was your college gpa?'
+                  label='What is/was your college GPA?'
                   required={true}
                   options={GPA_OPTIONS}
-                  placeholder='What was your college gpa?'
+                  placeholder='What is/was your college GPA?'
                   onChange={this.props.handleDropdownChange('gpa')}
                   defaultValue={values.gpa}
                   />
@@ -108,7 +108,7 @@ class QuestionairePart1 extends Component{
                   defaultValue={values.hotpot}
                   />
                   <Form.Input 
-                  label='How many cups of water do you add per cup of rice'
+                  label='How many cups of water do you add per cup of rice?'
                   required={true}
                   placeholder='Cup'
                   type='number'

@@ -58,7 +58,7 @@ class ContactInfo extends Component{
                     hidden ={values.valid}
                     error
                     header='Error no form of contact provided'
-                    content='Please make sure you have provided at least one from of contact'
+                    content='Please make sure you have provided at least one form of contact'
                   />
                   <div className="row justify-content-center">
                     <Button onClick={this.back}>Back</Button>
