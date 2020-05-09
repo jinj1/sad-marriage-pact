@@ -7,9 +7,12 @@ import MainForm from './MainForm';
 class Form extends Component {
   render() {
     return (
-      <Container textAlign="center">
-        <MainForm />
-      </Container>
+      <div>
+        <a href="/"><img className="logo" src="logo-01.png" alt="logo" /></a>
+        <Container textAlign="center">
+          <MainForm />
+        </Container>
+      </div>
     );
   }
 }

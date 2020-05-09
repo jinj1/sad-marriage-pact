@@ -34,7 +34,7 @@ class Confirmation extends Component {
     const { values: { userDetails, preferences, contactInfo } } = this.props;
     return (
       <div>
-        <h1 className="ui centered">Please Confirm Your Information And Preferences</h1>
+        <h1 className="ui centered">Please Confirm Your Information And Preferences</h1><br></br>
 
         <Grid>
           <Grid.Row centered>

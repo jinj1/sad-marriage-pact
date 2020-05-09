@@ -18,7 +18,7 @@ class Preferences extends Component{
       const { values } = this.props
       return(
         <div>
-          <h1 className="ui centered">Enter Preferences</h1>
+          <h1 className="ui centered">Enter Preferences</h1><br></br>
           <Grid>
             <Grid.Row centered>
               <Grid.Column width={11}>

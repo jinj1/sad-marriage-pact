@@ -17,7 +17,7 @@ class ContactInfo extends Component{
       const { values } = this.props
       return(
         <div>
-          <h1 className="ui centered">Final Step: How do you want your match to contact you?</h1>
+          <h1 className="ui centered">Final Step: How do you want your match to contact you?</h1><br></br>
           <Grid>
             <Grid.Row centered>
               <Grid.Column width={11}>

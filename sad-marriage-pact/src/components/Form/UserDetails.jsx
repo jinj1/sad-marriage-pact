@@ -17,7 +17,7 @@ class UserDetails extends Component{
       const { values } = this.props;
       return(
         <div>
-          <h1 className="ui centered">Enter User Details</h1>
+          <h1 className="ui centered">Enter User Details</h1><br></br>
           <Grid>
             <Grid.Row centered>
               <Grid.Column width={11}>

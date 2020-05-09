@@ -23,7 +23,7 @@ class QuestionairePart1 extends Component{
       const { values } = this.props
       return(
         <div>
-          <h1 className="ui centered">Questionnaire Part 1</h1>
+          <h1 className="ui centered">Questionnaire Part 1</h1><br></br>
           <Grid>
             <Grid.Row centered>
               <Grid.Column width={11}>
