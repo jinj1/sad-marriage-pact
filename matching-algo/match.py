@@ -26,12 +26,33 @@ def getList(gender):
     },
     {
       "$addFields": {
-        "info" : {
-          "$concatArrays": [
-            { "$objectToArray": "$part1" },
-            { "$objectToArray": "$part2" },
-            { "$objectToArray": "$part3" }
-          ] 
+        "answerScore" : {
+          "$sum": [
+            "$part2.drink",
+            "$part2.smoke",
+            "$part2.weed",
+            "$part2.drug",
+            "$part2.rave",
+            "$part2.eatOut",
+            "$part2.cook",
+            "$part2.boba",
+            "$part2.workout",
+            "$part2.read",
+            "$part2.tv",
+            "$part2.sex",
+            "$part3.white",
+            "$part3.weeb",
+            "$part3.kpop",
+            "$part3.parent",
+            "$part3.maintainence",
+            "$part3.arrival",
+            "$part3.cleaniness",
+            "$part3.emotion",
+            "$part3.wholesome",
+            "$part3.personality",
+            "$part3.politics",
+            "$part3.commitment"
+          ]
         }
       }
     },
@@ -40,7 +61,9 @@ def getList(gender):
         "_id": 1,
         "userDetails": 1,
         "preferences": 1,
+        "part1": 1,
         "contactInfo": 1,
+        "answerScore": 1,
         "info": 1
       }
     }
@@ -76,19 +99,59 @@ def getPossibleMatches(person):
     },
     {
       "$addFields": {
-        "numEqualAnswers" : {
-          "$size": { 
-            "$setIntersection": [
-              {
-                "$concatArrays": [
-                { "$objectToArray": "$part1" },
-                { "$objectToArray": "$part2" },
-                { "$objectToArray": "$part3" }
-                ]
-              }, 
-              person['info']
-            ]
-          }
+        "numEqualAnswers": {
+          "$sum": [
+            {"$cond": [{'$eq': ["$part1.major", person["part1"]["major"]]}, 4, 0]},
+            {"$cond": [{'$eq': ["$part1.gpa", person["part1"]["gpa"]]}, 4, 0]},
+            {"$cond": [{'$eq': ["$part1.salary", person["part1"]["salary"]]}, 4, 0]},
+            {"$subtract": [4, {"$abs": {"$subtract": ["$part1.kids", person["part1"]["kids"]]}}]},
+            {"$subtract": [4, {"$abs": {"$subtract": ["$part1.pets", person["part1"]["pets"]]}}]},
+            {"$cond": [{'$eq': ["$part1.religion", person["part1"]["religion"]]}, 10, 0]},
+            {"$cond": [{'$eq': ["$part1.loveLang", person["part1"]["loveLang"]]}, 4, 0]},
+            {"$cond": [{'$eq': ["$part1.hotpot", person["part1"]["hotpot"]]}, 3, 0]},
+            {"$cond": [{'$eq': ["$part1.rice", person["part1"]["rice"]]}, 3, 0]}
+          ]
+        }
+      }
+    },
+    {
+      "$addFields": {
+        "answerScore" : {
+          "$sum": [
+            "$part2.drink",
+            "$part2.smoke",
+            "$part2.weed",
+            "$part2.drug",
+            "$part2.rave",
+            "$part2.eatOut",
+            "$part2.cook",
+            "$part2.boba",
+            "$part2.workout",
+            "$part2.read",
+            "$part2.tv",
+            "$part2.sex",
+            "$part3.white",
+            "$part3.weeb",
+            "$part3.kpop",
+            "$part3.parent",
+            "$part3.maintainence",
+            "$part3.arrival",
+            "$part3.cleaniness",
+            "$part3.emotion",
+            "$part3.wholesome",
+            "$part3.personality",
+            "$part3.politics",
+            "$part3.commitment"
+          ]
+        }
+      }
+    },
+    {
+      "$addFields": {
+        "numScore" : {
+          "$subtract": [
+            120, { "$abs": { "$subtract": ["$answerScore", person["answerScore"]]}}
+          ]
         }
       }
     },
@@ -97,7 +160,8 @@ def getPossibleMatches(person):
         "score" : {
           "$sum" : [
             "$numEqualAnswers",
-            { "$cond": [{ "size":{ "$setIntersection": ["$userDetails.ethnicities", person["preferences"]["ethnicities"]]}}, 1, 0]}
+            "$numScore",
+            { "$cond": [{ "size":{ "$setIntersection": ["$userDetails.ethnicities", person["preferences"]["ethnicities"]]}}, 1, 0]},
           ]
         }
       }
@@ -107,6 +171,7 @@ def getPossibleMatches(person):
         "matchesScore" : {
           "$sum" : [
             "$numEqualAnswers",
+            "$numScore",
             { "$cond": [{ "$size": { "$setIntersection": [person["userDetails"]["ethnicities"], "$preferences.ethnicities"]}}, 1, 0]}
           ]
         }
@@ -115,6 +180,7 @@ def getPossibleMatches(person):
     {
       "$project": {
         "_id": 1,
+        "numEqualAnswers": 1,
         "userDetails": 1,
         "contactInfo": 1,
         "score": 1,

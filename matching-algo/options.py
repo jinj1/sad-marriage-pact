@@ -1377,16 +1377,16 @@ FOOD_OPTIONS = [{'text': 'Hotpot', 'key': 'hp', 'value': 'hp'},
 {'text': 'Kbbq', 'key': 'kbbq', 'value': 'kbbq'}]
 
 
-NUMBER_OPTIONS = [{'key': '0', 'text': '0', 'value': '0'},
-{'key': '1', 'text': '1', 'value': '1'},
-{'key': '2', 'text': '2', 'value': '2'},
-{'key': '3', 'text': '3', 'value': '3'},
-{'key': '4', 'text': '4 or more', 'value': '4+'}]
+NUMBER_OPTIONS = [{'key': '0', 'text': '0', 'value': 0},
+{'key': '1', 'text': '1', 'value': 1},
+{'key': '2', 'text': '2', 'value': 2},
+{'key': '3', 'text': '3', 'value': 3},
+{'key': '4', 'text': '4 or more', 'value': 4}]
 
-FREQUENCY_OPTIONS = [{'key': 'NEV', 'text': 'Never', 'value': 'never'},
-{'key': 'DAILY', 'text': 'Daily', 'value': 'daily'},
-{'key': 'FEW', 'text': 'Once every few days', 'value': 'few'},
-{'key': 'WEEK', 'text': 'Weekly', 'value': 'weekly'},
-{'key': 'BIWEEK', 'text': 'Biweekly(once every two weeks)', 'value': 'biweekly'},
-{'key': 'MON', 'text': 'Monthly', 'value': 'monthly'},
-{'key': 'LMON', 'text': 'Less than once a month', 'value': 'LMON'} ]
+FREQUENCY_OPTIONS = [{'key': 'NEV', 'text': 'Never', 'value': 0},
+{'key': 'DAILY', 'text': 'Daily', 'value': 1},
+{'key': 'FEW', 'text': 'Once every few days', 'value': 2},
+{'key': 'WEEK', 'text': 'Weekly', 'value': 3},
+{'key': 'BIWEEK', 'text': 'Biweekly(once every two weeks)', 'value': 4},
+{'key': 'MON', 'text': 'Monthly', 'value': 5},
+{'key': 'LMON', 'text': 'Less than once a month', 'value': 6} ]

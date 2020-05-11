@@ -12,7 +12,7 @@ genders = [
 ]
 
 for gender in genders:
-  for i in range (1,2):
+  for i in range (1,101):
     user ={"step": 7}
 
     userDetails = {
@@ -91,18 +91,18 @@ for gender in genders:
     user['part2'] = part2
 
     part3 = {
-      "white": random.choice(['1(FOB)', '2', '3', '4', '5(White)']),
-      "weeb": random.choice(['1(Whats anime?)', '2', '3', '4', '5(Full Weeb)']),
-      "kpop": random.choice(['1(Neutral)', '2', '3', '4', '5(Obsessed)']),
-      "parent": random.choice(['1(Lax)', '2', '3', '4', '5(Tiger parent)']),
-      "maintainence": random.choice(['1(Low maintainence)', '2', '3', '4', '5(High maintainence)']),
-      "arrival": random.choice(['1(Early)', '2', '3', '4', '5(Fashionably late)']),
-      "cleaniness": random.choice(['1(Slob)', '2', '3', '4', '5(Neat Freak)']),
-      "emotion": random.choice(['1(Emotionally Compotent)', '2', '3', '4', '5(Emotionally Incompotent)']),
-      "wholesome": random.choice(['1(Wholesome)', '2', '3', '4', '5(Hoesome)']),
-      "personality": random.choice(['1(Introvert)', '2', '3', '4', '5(Extrovert)']),
-      "politics": random.choice(['1(Liberal)', '2', '3', '4', '5(Conservative)']),
-      "commitment": random.choice(['1(Hookup)', '2', '3', '4', '5(Committed)'])
+      "white": random.randint(0,4),
+      "weeb": random.randint(0,4),
+      "kpop": random.randint(0,4),
+      "parent": random.randint(0,4),
+      "maintainence": random.randint(0,4),
+      "arrival": random.randint(0,4),
+      "cleaniness": random.randint(0,4),
+      "emotion": random.randint(0,4),
+      "wholesome": random.randint(0,4),
+      "personality": random.randint(0,4),
+      "politics": random.randint(0,4),
+      "commitment": random.randint(0,4)
     }
     user['part3'] = part3
 
