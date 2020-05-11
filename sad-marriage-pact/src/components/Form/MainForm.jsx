@@ -11,7 +11,7 @@ import Success from './Success';
 
 class MainForm extends Component {
   state = {
-    step: 5,
+    step: 1,
     userDetails: {
       firstName: '',
       lastName: '',
