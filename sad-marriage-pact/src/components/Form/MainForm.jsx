@@ -11,7 +11,7 @@ import Success from './Success';
 
 class MainForm extends Component {
   state = {
-    step: 1,
+    step: 5,
     userDetails: {
       firstName: '',
       lastName: '',
@@ -212,14 +212,22 @@ class MainForm extends Component {
 
   handleUserDetailsChange = input => event => {
     const { userDetails } = this.state;
-    userDetails[input] =  event.target.value
+    if(input === "age"){
+      userDetails[input] =  Number(event.target.value)
+    } else {
+      userDetails[input] =  event.target.value
+    }
     userDetails['valid'] = true
     this.setState({ 'userDetails' : userDetails})
   }
 
   handlePreferencesChange = input => event => {
     const { preferences } = this.state;
-    preferences[input] =  event.target.value
+    if(input === "minAge" || input === "maxAge"){
+      preferences[input] =  Number(event.target.value)
+    } else {
+      preferences[input] =  event.target.value
+    }
     preferences['valid'] = true
     this.setState({ 'preferences' : preferences})
   }
@@ -233,7 +241,7 @@ class MainForm extends Component {
 
   handlePart3Change = input => (event, value) => {
     const { part3 } = this.state;
-    part3[input] =  value.value
+    part3[input] =  Number(value.value);
     part3['valid'] = true
     this.setState({ 'part3' : part3})
   }
