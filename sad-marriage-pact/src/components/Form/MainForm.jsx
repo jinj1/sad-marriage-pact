@@ -8,6 +8,7 @@ import QuestionairePart3 from './QuestionairePart3';
 import ContactInfo from './ContactInfo';
 import Confirmation from './Confirmation';
 import Success from './Success';
+import NotAvailable from './NotAvailable';
 
 class MainForm extends Component {
   state = {
@@ -79,8 +80,10 @@ class MainForm extends Component {
       facebook: '',
       email: '',
       other: '',
+      message: '',
       valid: true,
     },
+    submitted: false
   }
 
   nextStep = async () => {
@@ -101,6 +104,12 @@ class MainForm extends Component {
       const response = await fetch(request)
       const status = await response.status
       console.log(status)
+      if (status !== 204){
+        this.setState({
+          submitted: true
+        })
+        return
+      }
     }
     this.setState({
       step : step + 1
@@ -196,7 +205,7 @@ class MainForm extends Component {
     case 6:
       const { contactInfo } = this.state
       for (let key of Object.keys(contactInfo)){
-        if (key !== 'valid' && contactInfo[key] !== ''){
+        if (key !== 'valid' && key !== 'message' && contactInfo[key] !== ''){
           contactInfo['valid'] = true
           this.setState({'contactInfo': contactInfo})
           return true
@@ -283,8 +292,11 @@ class MainForm extends Component {
 
   render(){
     const {step} = this.state;
-    const { userDetails, preferences, part1, part2, part3, contactInfo } = this.state;
-    const values = { userDetails, preferences, part1, part2, part3, contactInfo};
+    const { userDetails, preferences, part1, part2, part3, contactInfo, submitted } = this.state;
+    const values = { userDetails, preferences, part1, part2, part3, contactInfo, submitted};
+    if (Date.now() > Date.UTC(2020,5,1)){
+      return <NotAvailable/>
+    }
     switch(step) {
     case 1:
       return <UserDetails

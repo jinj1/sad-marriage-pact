@@ -26,24 +26,28 @@ class ContactInfo extends Component{
                 error>
                   <Form.Input
                     label="Snapchat"
+                    maxLength={30}
                     placeholder='Snapchat Username'
                     onChange={this.props.handleChange('snapchat')}
                     defaultValue={values.snapchat}
                   />
                   <Form.Input
                     label="Instagram"
+                    maxLength={30}
                     placeholder='Instagram Handle'
                     onChange={this.props.handleChange('instagram')}
                     defaultValue={values.instagram}
                   />
                   <Form.Input
                     label="Facebook"
+                    maxLength={1024}
                     placeholder='Link to Facebook Profile'
                     onChange={this.props.handleChange('facebook')}
                     defaultValue={values.facebook}
                   />
                   <Form.Input
                     label="Email"
+                    maxLength={320}
                     placeholder='Email Address'
                     onChange={this.props.handleChange('email')}
                     defaultValue={values.email}
@@ -51,8 +55,16 @@ class ContactInfo extends Component{
                   <Form.TextArea 
                     label='Other'
                     placeholder=''
+                    maxLength={1500}
                     onChange={this.props.handleChange('other')}
                     defaultValue={values.other}>
+                  </Form.TextArea>
+                  <Form.TextArea 
+                    label='Leave a Message for your Match.'
+                    maxLength={1500}
+                    placeholder=''
+                    onChange={this.props.handleChange('message')}
+                    defaultValue={values.message}>
                   </Form.TextArea>
                   <Message
                     hidden ={values.valid}

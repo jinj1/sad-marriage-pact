@@ -1,6 +1,6 @@
 // Confirmation.jsx
 import React, { Component } from 'react';
-import { Grid, Button, Table } from 'semantic-ui-react';
+import { Grid, Button, Table, Message } from 'semantic-ui-react';
 import {
   COUNTRY_OPTIONS, ETHNICITIES_OPTIONS, GENDER_OPTIONS, HEIGHT_OPTIONS,
 } from './Options';
@@ -31,7 +31,7 @@ class Confirmation extends Component {
   }
 
   render() {
-    const { values: { userDetails, preferences, contactInfo } } = this.props;
+    const { values: { userDetails, preferences, contactInfo, submitted } } = this.props;
     return (
       <div>
         <h1 className="ui centered">Please Confirm Your Information And Preferences</h1><br></br>
@@ -175,6 +175,12 @@ class Confirmation extends Component {
                   ))}
                 </Table.Body>
               </Table>
+              <Message
+                hidden = {!submitted}
+                error
+                header='Error Unable to submit'
+                content='Unable to submit. Please try again.'
+              />
               <div className="row justify-content-center">
                 <Button onClick={this.back}>Back</Button>
                 <Button onClick={this.saveAndContinue}>Submit</Button>

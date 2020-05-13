@@ -25,6 +25,7 @@ def hello():
   else:
     return '', http.HTTPStatus.NO_CONTENT
   data.pop('step')
+  data.pop('submitted')
   for key in data.keys():
     data[key].pop('valid', '')
   data["matched"] = False

@@ -28,6 +28,7 @@ class UserDetails extends Component{
                   <Form.Group>
                     <Form.Input
                     width={8}
+                    maxLength={100}
                     label="First Name"
                     required={true}
                     placeholder='First Name'
@@ -36,6 +37,7 @@ class UserDetails extends Component{
                     />
                     <Form.Input
                     width={8}
+                    maxLength={100}
                     label="Last Name"
                     required={true}
                     placeholder='Last Name'
@@ -45,6 +47,7 @@ class UserDetails extends Component{
                   </Form.Group>
                   <Form.Input
                   label="Email Address"
+                  maxLength={320}
                   required={true}
                   type='email'
                   placeholder='Email Address'
