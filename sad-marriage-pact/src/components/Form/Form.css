@@ -5,9 +5,17 @@
 }
 
 @media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 20pt;
+    }
+    
     .logo {
         position: relative;
         width: 75px;
         margin: 10px;
+    }
+
+    .ui.button {
+        margin: .25em;
     }
 }
