@@ -34,10 +34,10 @@ class QuestionairePart1 extends Component{
                   upward={false}
                   search
                   multiple selection
-                  label='What was your college major?'
+                  label='What is/was your college major?'
                   required={true}
                   options={MAJOR_OPTIONS}
-                  placeholder='What was your college major?'
+                  placeholder='What is/was your college major?'
                   onChange={this.props.handleDropdownChange('major')}
                   defaultValue={values.major}
                   />

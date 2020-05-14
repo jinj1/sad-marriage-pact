@@ -29,7 +29,7 @@ class QuestionairePart3 extends Component{
                 <Form 
                 size='large'
                 error>
-                  <label className="group_label">On a scale of 1 to 5 how white washed are you?</label>
+                  <label className="group_label">On a scale of 1 to 5 how whitewashed are you?</label>
                   <Form.Group widths='equal'>
                     {['1(FOB)', '2', '3', '4', '5(White)'].map((value, index) => {
                       if (index === 0){return <Form.Radio required={true} label={value} key={index} value={index} checked={values.white === index} onChange={this.props.handleChange('white')}/>}
@@ -47,7 +47,7 @@ class QuestionairePart3 extends Component{
                   <div className="ui divider"></div>
                   <label className="group_label">On a scale of 1 to 5 how into K-pop are you?</label>
                   <Form.Group widths='equal'>
-                    {['1(Dispise it)', '2', '3', '4', '5(Obsessed)'].map((value, index) => {
+                    {['1(Despise it)', '2', '3', '4', '5(Obsessed)'].map((value, index) => {
                       if (index === 0){return <Form.Radio required={true} label={value} key={index} value={index} checked={values.kpop === index} onChange={this.props.handleChange('kpop')}/>}
                       else{return <Form.Radio label={value} key={index} value={index} checked={values.kpop === index} onChange={this.props.handleChange('kpop')}/>}
                     })}
