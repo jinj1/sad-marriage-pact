@@ -96,8 +96,8 @@ class Preferences extends Component{
                    <Message
                   hidden ={values.valid}
                   error
-                  header="Error unanswered question or min value greater than max value"
-                  content="Please make sure you have answered all questions and that the minimum values are greater than or equal to the maximum values"
+                  header="Error: Unanswered Question or Min Value Greater Than Max Value"
+                  content="Please make sure you have answered all questions and that the minimum values are greater than or equal to the maximum values."
                   />
                   <div className="row justify-content-center">
                     <Button onClick={this.back}>Back</Button>

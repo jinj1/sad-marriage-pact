@@ -33,6 +33,7 @@ class QuestionairePart1 extends Component{
                   <Form.Select
                   upward={false}
                   search
+                  multiple selection
                   label='What was your college major?'
                   required={true}
                   options={MAJOR_OPTIONS}

@@ -34,7 +34,7 @@ class MainForm extends Component {
       valid: true
     },
     part1: {
-      major: '',
+      major: [],
       gpa: '',
       salary: '',
       kids: '',
@@ -140,7 +140,13 @@ class MainForm extends Component {
     case 1:
       const { userDetails } = this.state
       for (let key of Object.keys(userDetails)){
-        if (userDetails[key] === ''){
+        if (key === "country" || key === "ethnicities"){
+          if (userDetails[key].length < 1){
+            userDetails['valid'] = false
+            this.setState({'userDetails': userDetails})
+            return false
+          }
+        }else if (userDetails[key] === ''){
           userDetails['valid'] = false
           this.setState({'userDetails': userDetails})
           return false
@@ -152,7 +158,13 @@ class MainForm extends Component {
     case 2:
       const { preferences } = this.state
       for (let key of Object.keys(preferences)){
-        if (preferences[key] === ''){
+        if (key === "genders" || key === "ethnicities"){
+          if (preferences[key].length < 1){
+            preferences['valid'] = false
+            this.setState({'preferences': preferences})
+            return false
+          }
+        }else if (preferences[key] === ''){
           preferences['valid'] = false
           this.setState({'preferences': preferences})
           return false
@@ -169,7 +181,13 @@ class MainForm extends Component {
     case 3:
       const { part1 } = this.state
       for (let key of Object.keys(part1)){
-        if (part1[key] === ''){
+        if (key === "major"){
+          if (part1[key].length < 1){
+            part1['valid'] = false
+            this.setState({'part1': part1})
+            return false
+          }
+        }else if (part1[key] === ''){
           part1['valid'] = false
           this.setState({'part1': part1})
           return false
